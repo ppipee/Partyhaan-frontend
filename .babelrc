@@ -1,0 +1,15 @@
+{
+  "presets": ["razzle", "@babel/preset-env", "@babel/preset-typescript"],
+  "sourceType": "unambiguous",
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    "@loadable/babel-plugin",
+    "babel-plugin-lodash",
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true
+      }
+    ]
+  ]
+}
