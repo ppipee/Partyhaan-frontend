@@ -1,17 +1,16 @@
-import useAxios from 'axios-hooks'
 import { AxiosRequestConfig } from 'axios'
-import requestInterceptor from 'core/api/interceptor'
+import useAxios from 'axios-hooks'
 
-export default function useFetch(url: string, { params, method, data: body }: AxiosRequestConfig) {
-	const request = requestInterceptor({
-		baseURL: '',
+import useRequestInterceptor from 'core/api/hooks/useInterceptor'
+
+export default function useFetch<T>(url: string, { params, method, data: body }: AxiosRequestConfig, manual = false) {
+	const request = useRequestInterceptor({
+		baseURL: process.env.RAZZLE_API_URL,
 		url,
 		method,
 		params,
 		data: body,
 	})
 
-	const [response] = useAxios(request)
-
-	return response
+	return useAxios<T>(request, { manual })
 }

@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+
 import { Gray } from 'common/styles/colors'
 
 const BaseStyles = createGlobalStyle`

@@ -5,4 +5,4 @@ export const ScreenSize = {
 
 export type ScreenSize = typeof ScreenSize[keyof typeof ScreenSize]
 
-export const NAV_HEIGHT = '56px'
+export const NAV_HEIGHT = '50px'

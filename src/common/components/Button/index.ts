@@ -5,7 +5,7 @@ import { FontSizes, Spaces } from 'common/styles/mixins'
 
 type Props = {
 	$color?: Record<number, string>
-	$size?: 36 | 44
+	$size?: 28 | 44
 }
 
 function applyButtonSize({ $size = 44 }: Props) {
@@ -19,7 +19,7 @@ function applyButtonSize({ $size = 44 }: Props) {
 	}
 
 	return css`
-		font-size: ${FontSizes[14]};
+		font-size: ${FontSizes[12]};
 		padding: ${Spaces[6]} ${Spaces[12]};
 		height: ${$size}px;
 		border-radius: 4px;
@@ -44,6 +44,11 @@ const Button = styled.button<Props>`
 				background-color: ${$color[500]};
 			}
 		`}
+
+	&:disabled {
+		background-color: ${Gray[300]};
+		color: ${Gray.White};
+	}
 
 	${applyButtonSize};
 `

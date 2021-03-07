@@ -1,9 +1,14 @@
+import styled from 'styled-components'
+
 import ContentContainer from 'common/components/ContentContainer'
 import { Gray, Primary } from 'common/styles/colors'
 import { NAV_HEIGHT } from 'common/styles/constants'
 import media from 'common/styles/media'
 import { Spaces } from 'common/styles/mixins'
-import styled from 'styled-components'
+
+type Props = {
+	$zIndex?: number
+}
 
 export const BarContainer = styled(ContentContainer)`
 	height: ${NAV_HEIGHT};
@@ -18,16 +23,16 @@ export const BarContainer = styled(ContentContainer)`
 	}
 `
 
-export const BarWrapper = styled.div`
+export const BarWrapper = styled.div<Props>`
 	position: fixed;
 	top: 0;
 	background-color: ${Primary[500]};
-	width: 100vw;
-	z-index: 100;
+	width: 100%;
+	z-index: ${(p) => p.$zIndex ?? 100};
 `
 
 export const EmptyBlock = styled.div`
-	width: 100vw;
+	width: 100%;
 	pointer-events: none;
 	height: ${NAV_HEIGHT};
 `

@@ -35,7 +35,7 @@ export const Container = styled(Gap)`
 	padding: ${Spaces[36]} ${Spaces[24]} ${Spaces[48]};
 
 	${media.mobile} {
-		padding: ${Spaces[24]};
+		padding: ${Spaces[36]};
 	}
 `
 

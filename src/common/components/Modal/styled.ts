@@ -1,8 +1,9 @@
+import styled from 'styled-components'
+
 import { Gray, Primary } from 'common/styles/colors'
 import { NAV_HEIGHT } from 'common/styles/constants'
 import media from 'common/styles/media'
 import { Spaces } from 'common/styles/mixins'
-import styled from 'styled-components'
 
 const MODAL_WIDTH = '480px'
 
@@ -12,6 +13,7 @@ export const ModalWrapper = styled.div`
 	bottom: 0;
 	left: 0;
 	right: 0;
+	z-index: 200;
 
 	& > div {
 		position: absolute;

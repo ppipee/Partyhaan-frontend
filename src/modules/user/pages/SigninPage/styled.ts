@@ -1,10 +1,11 @@
-import ContentContainer from 'common/components/ContentContainer'
-import { Primary, Gray } from 'common/styles/colors'
-import { Spaces } from 'common/styles/mixins'
 import styled from 'styled-components'
-import media from 'common/styles/media'
+
 import Button from 'common/components/Button'
+import ContentContainer from 'common/components/ContentContainer'
 import Gap from 'common/components/Gap'
+import { Gray, Primary } from 'common/styles/colors'
+import media from 'common/styles/media'
+import { Spaces } from 'common/styles/mixins'
 
 const CONTENT_WIDTH = '680px'
 
@@ -18,12 +19,14 @@ export const ContainerWrapper = styled(ContentContainer)`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin: auto;
 `
 
 export const Background = styled.div`
 	background-color: ${Primary[500]};
 	height: max-content;
 	min-height: 100%;
+	display: flex;
 `
 
 export const Container = styled(Gap)`
@@ -32,9 +35,11 @@ export const Container = styled(Gap)`
 	max-width: ${CONTENT_WIDTH};
 	padding: ${Spaces[24]};
 	box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.12), 0px 0px 6px rgba(0, 0, 0, 0.12);
+	margin: ${Spaces[24]} 0 ${Spaces[48]};
 
 	${media.mobile} {
-		padding: ${Spaces[16]};
+		margin-top: ${Spaces[16]};
+		padding: ${Spaces[20]};
 	}
 `
 
@@ -47,7 +52,7 @@ export const SignupButton = styled(Button)`
 export const Logo = styled.img`
 	border: 1px solid ${Primary[500]};
 	height: ${LOGO_DESKTOP_SIZE};
-	margin: ${Spaces[24]} 0 ${Spaces[36]};
+	margin: 0 0 ${Spaces[36]};
 
 	${media.mobile} {
 		height: ${LOGO_MOBILE_SIZE};

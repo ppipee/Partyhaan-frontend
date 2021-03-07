@@ -1,7 +1,9 @@
 import React, { ReactNode } from 'react'
-import { IconWrapper, ModalContainer, ModalWrapper, Overlay } from './styled'
+
 import CloseIcon from 'common/components/icons/CloseIcon'
 import { Gray } from 'common/styles/colors'
+
+import { IconWrapper, ModalContainer, ModalWrapper, Overlay } from './styled'
 
 type Props = {
 	closeWithOverlay?: boolean
@@ -17,7 +19,7 @@ const Modal = ({ close, closeWithOverlay, children, hideCloseIcon }: Props) => {
 		<ModalWrapper>
 			<Overlay onClick={closeWithOverlay && close} />
 			<ModalContainer>
-				{hideCloseIcon && (
+				{!hideCloseIcon && (
 					<IconWrapper>
 						<CloseIcon onClick={close} cursor="pointer" color={Gray.White} size={ICON_SIZE} />
 					</IconWrapper>

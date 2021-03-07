@@ -1,36 +1,33 @@
-import useResponsive from 'common/styles/hooks/useResponsive'
 import React, { ComponentType } from 'react'
-import PartyCard from '../PartyCard'
-import { DesktopContainer, MobileContainer } from './styled'
+import InfiniteScroll from 'react-infinite-scroller'
 
-const MOCK_PARTY = {
-	id: '1',
-	name: 'long longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong',
-	totalMembers: 0,
-	maxMembers: 10,
-}
+import { isEmpty } from 'lodash'
+
+import useResponsive from 'common/styles/hooks/useResponsive'
+
+import useFetchParties from 'modules/home/hooks/useFetchParties'
+
+import PartyCard from '../PartyCard'
+import PartyListLoading from './loading'
+import { DesktopContainer, MobileContainer } from './styled'
 
 const PartiesList = () => {
 	const { isDesktop } = useResponsive()
+	const { isLoading, parties, loadMore, hasMore } = useFetchParties()
+
 	const Container = (isDesktop ? DesktopContainer : MobileContainer) as ComponentType
-	const parties = [
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-		MOCK_PARTY,
-	]
+
+	if (isLoading) return <PartyListLoading cardNumber={6} />
+	if (isEmpty(parties)) return <div>empty</div>
 
 	return (
-		<Container>
-			{parties.map((party) => (
-				<PartyCard key={`party-${party.id}`} party={party} />
-			))}
-		</Container>
+		<InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
+			<Container>
+				{parties.map((party) => (
+					<PartyCard key={`party-${party.id}`} party={party} />
+				))}
+			</Container>
+		</InfiniteScroll>
 	)
 }
 

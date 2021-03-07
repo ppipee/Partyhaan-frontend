@@ -1,19 +1,19 @@
 import React from 'react'
 
 import ArrowIcon from 'common/components/icons/ArrowIcon'
+import Modal from 'common/components/Modal'
 import useResponsive from 'common/styles/hooks/useResponsive'
 
 import CreatePartyForm from 'modules/home/components/CreatePartyForm'
 import NavigationBar from 'modules/root/components/NavigationBar'
 
 import { IconWrapper } from './styled'
-import Modal from 'common/components/Modal'
 
 type Props = {
 	close: () => void
 }
 
-const ICON_SIZE = 28
+const ARROW_ICON_SIZE = 28
 
 const CreatePartyModalComponent = ({ close }: Props) => {
 	const { isDesktop } = useResponsive()
@@ -21,13 +21,13 @@ const CreatePartyModalComponent = ({ close }: Props) => {
 	return (
 		<div>
 			{!isDesktop && (
-				<NavigationBar>
+				<NavigationBar zIndex={201}>
 					<IconWrapper onClick={close}>
-						<ArrowIcon size={ICON_SIZE} />
+						<ArrowIcon size={ARROW_ICON_SIZE} />
 					</IconWrapper>
 				</NavigationBar>
 			)}
-			<Modal close={close}>
+			<Modal close={close} hideCloseIcon={!isDesktop}>
 				<CreatePartyForm onClose={close} />
 			</Modal>
 		</div>

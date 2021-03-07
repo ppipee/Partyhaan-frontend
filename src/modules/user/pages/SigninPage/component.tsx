@@ -15,13 +15,12 @@ const SigninPageComponent = () => {
 
 	return (
 		<Background>
-			
 			<ContainerWrapper>
 				<Logo src={PartyHaanLogo} />
 				<Container $type="vertical" $size={isDesktop ? Spaces[24] : Spaces[16]}>
 					<SigninForm />
 					<Link to={SIGNUP_PATH}>
-						<SignupButton $size={isDesktop ? 44 : 36}>สร้างบัญชีผู้ใช้ใหม่</SignupButton>
+						<SignupButton $size={isDesktop ? 44 : 28}>สร้างบัญชีผู้ใช้ใหม่</SignupButton>
 					</Link>
 				</Container>
 			</ContainerWrapper>

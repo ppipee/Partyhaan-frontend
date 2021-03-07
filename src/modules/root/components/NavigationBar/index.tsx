@@ -4,13 +4,14 @@ import { BarWrapper, BarContainer, EmptyBlock } from './styled'
 type Props = {
 	className?: string
 	children: ReactNode
+	zIndex?: number
 }
 
-const NavigationBar = ({ children, ...props }: Props) => {
+const NavigationBar = ({ children, zIndex, ...props }: Props) => {
 	return (
 		<>
 			<EmptyBlock />
-			<BarWrapper>
+			<BarWrapper $zIndex={zIndex}>
 				<BarContainer {...props}>{children}</BarContainer>
 			</BarWrapper>
 		</>

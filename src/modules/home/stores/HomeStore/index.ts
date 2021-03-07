@@ -1,9 +1,13 @@
 import { atom } from 'recoil'
 
+import { Party } from 'modules/home/types'
+
 const HomeStore = atom({
 	key: 'HomeStore',
 	default: {
-		value: 1,
+		currentPage: 1,
+		nextPage: null,
+		parties: [] as Party[],
 	},
 })
 
