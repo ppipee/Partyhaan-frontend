@@ -34,7 +34,7 @@ export const ModalContainer = styled.div`
 	width: ${MODAL_WIDTH};
 	border-radius: 16px;
 	background-color: ${Gray.White};
-	padding: ${Spaces[24]} ${Spaces[32]};
+	padding: ${Spaces[48]} ${Spaces[32]};
 
 	${media.mobile} {
 		width: 100%;

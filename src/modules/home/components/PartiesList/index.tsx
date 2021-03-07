@@ -23,8 +23,8 @@ const PartiesList = () => {
 	return (
 		<InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
 			<Container>
-				{parties.map((party) => (
-					<PartyCard key={`party-${party.id}`} party={party} />
+				{parties.map((party, index) => (
+					<PartyCard key={`party-${party.id}-${index}`} party={party} />
 				))}
 			</Container>
 		</InfiniteScroll>

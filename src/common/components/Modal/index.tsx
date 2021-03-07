@@ -1,11 +1,11 @@
-import React, { ReactNode } from 'react'
+import React, { HTMLAttributes, ReactNode } from 'react'
 
 import CloseIcon from 'common/components/icons/CloseIcon'
 import { Gray } from 'common/styles/colors'
 
 import { IconWrapper, ModalContainer, ModalWrapper, Overlay } from './styled'
 
-type Props = {
+interface Props extends HTMLAttributes<HTMLDivElement> {
 	closeWithOverlay?: boolean
 	children: ReactNode
 	close: () => void
@@ -14,11 +14,11 @@ type Props = {
 
 const ICON_SIZE = 24
 
-const Modal = ({ close, closeWithOverlay, children, hideCloseIcon }: Props) => {
+const Modal = ({ close, closeWithOverlay, children, hideCloseIcon, ...props }: Props) => {
 	return (
 		<ModalWrapper>
 			<Overlay onClick={closeWithOverlay && close} />
-			<ModalContainer>
+			<ModalContainer {...props}>
 				{!hideCloseIcon && (
 					<IconWrapper>
 						<CloseIcon onClick={close} cursor="pointer" color={Gray.White} size={ICON_SIZE} />

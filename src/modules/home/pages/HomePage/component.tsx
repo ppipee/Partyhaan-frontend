@@ -9,6 +9,8 @@ import NavigationBar from 'modules/home/components/NavigationBar'
 import PartiesList from 'modules/home/components/PartiesList'
 
 import { ButtonWrapper, Container, CreatePartyButton, NavbarContent, NavbarTitle } from './styled'
+import ProtectActionModal from 'modules/root/components/ProtectActionModal'
+import { useProtectActionModalStoreValue } from 'modules/home/stores/ProtectActionModalStore/hooks/useProtectActionModalStore'
 
 const ADD_ICON_SIZE = {
 	MOBILE: 20,
@@ -17,6 +19,7 @@ const ADD_ICON_SIZE = {
 
 const HomePageComponent = () => {
 	const { isOpen, open, close } = useSwitch()
+	const { isOpen: isProtectActionOpen } = useProtectActionModalStoreValue()
 	const { isDesktop } = useResponsive()
 
 	useEffect(() => {
@@ -37,6 +40,7 @@ const HomePageComponent = () => {
 				</CreatePartyButton>
 			</ButtonWrapper>
 			{isOpen && <CreatePartyModal close={close} />}
+			{isProtectActionOpen && <ProtectActionModal />}
 		</>
 	)
 }
